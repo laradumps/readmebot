@@ -1,0 +1,69 @@
+{
+    "name": "laradumps/readme-bot",
+    "description": "README Bot CLI App",
+    "license": "MIT",
+    "require": {
+        "symfony/console": "^6.1",
+        "nunomaduro/termwind": "^1.14",
+        "illuminate/collections": "^9.31",
+        "thecodingmachine/safe": "^2.2",
+        "guzzlehttp/guzzle": "^7.4"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.2",
+        "kint-php/kint": "^4.2",
+        "pestphp/pest": "^1.21",
+        "thecodingmachine/phpstan-safe-rule": "^1.1",
+        "phpstan/phpstan": "^1.8",
+        "nunomaduro/phpinsights": "^2.6",
+        "pestphp/pest-plugin-mock": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        },
+        "classmap": [
+            "app"
+        ],
+        "files": [
+            "app/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": "./vendor/bin/php-cs-fixer fix --allow-risky=yes",
+        "test:lint": "./vendor/bin/php-cs-fixer fix --dry-run --allow-risky=yes",
+        "test:types": "./vendor/bin/phpstan analyse --ansi",
+        "test:unit": "env `cat .key 2>&- || false`  ./vendor/bin/pest --colors=always --order-by random",
+        "test:unmocked": "env `cat .key 2>&- || false`  ./vendor/bin/pest  --colors=always --group='not-mocked' --order-by random",
+        "test:code": "./vendor/bin/phpinsights --ansi --min-quality=90 --min-complexity=70 --min-architecture=90 --min-style=85",
+        "verify": [
+            "@test:lint",
+            "@test:types",
+            "@test:unit",
+            "@test:unmocked",
+            "@test:code --no-interaction --summary"
+        ],
+        "demo": [
+            "env `cat .key 2>&- || false` php ./bin/readmebot update-version --fake-version --github-credential='{\"name\":\"foo\",\"email\":\"foo@bar.com\"}' --no-commit --exclude-files='README.md'"
+        ],
+        "demo-phar": [
+            "env `cat .key 2>&- || false` ./.github/readmebot update-version --fake-version --github-credential='{\"name\":\"foo\",\"email\":\"foo@bar.com\"}' --no-commit --exclude-files='README.md'"
+        ],
+        "build": [
+            "@tests",
+            "rm -f dist/readmebot",
+            "php ./bin/box compile --config='box.json'"
+        ]
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

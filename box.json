@@ -1,0 +1,22 @@
+{
+  "chmod": "0755",
+  "directories": [ "app" ],
+  "files": [
+  "composer.json"
+  ],
+  "finder": [
+      {
+          "name": "*.php",
+          "exclude": ["Tests"],
+          "in": "vendor"
+      }
+  ],
+  "shebang": "#!/usr/bin/env php",
+  "compression": "GZ",
+  "compactors": [
+      "KevinGH\\Box\\Compactor\\Php",
+      "KevinGH\\Box\\Compactor\\Json"
+  ],
+  "main": "bin/readmebot",
+  "output": "dist/readmebot"
+}

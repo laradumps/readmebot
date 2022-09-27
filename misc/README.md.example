@@ -1,0 +1,36 @@
+# README FILE
+
+<!--LaraDumpsVersion-->
+Welcome to LaraDumps v0.1.1
+<!--EndOfLaraDumpsVersion-->
+
+This other version was not updated in a long time: <!--LaraDumpsVersion-->0.1.1<!--EndOfLaraDumpsVersion-->
+
+This markdown file is listed in `files.txt` and will be updated by the bot.
+
+## Requirements
+
+The versions below should not change:
+
+- PHP 9.10.23
+- Ubuntu 3.4.5
+
+## Install
+
+Run:
+
+<!--LaraDumpsVersion-->
+```php
+composer require laradumps/laradumps-util:0.1.1
+```
+<!--EndOfLaraDumpsVersion-->
+
+## Download
+
+These links should be always up-to-date:
+
+<!--LaraDumpsVersion-->
+  <a href="https://github.com/laradumps/app/releases/download/v0.1.1/LaraDumps-Setup-0.1.1.exe">Download win!</a>
+  <a href="https://github.com/laradumps/app/releases/download/v0.1.1/LaraDumps-Setup-0.1.1.exe">Download mac!</a>
+  <a href="https://github.com/laradumps/app/releases/download/v0.1.1/LaraDumps-Setup-0.1.1.exe">Download linux!</a>
+<!--EndOfLaraDumpsVersion-->

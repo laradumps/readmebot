@@ -1,0 +1,25 @@
+<?php
+
+declare(strict_types = 1);
+
+require __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+
+$application = new Application('LaraDumps Readme-BOT', '1.0.0');
+
+$files = new \FilesystemIterator(__DIR__ . '/../app/Commands');
+
+foreach ($files as $file) {
+    /** @phpstan-ignore-next-line */
+    if ($file->getExtension() == 'php') {
+        /** @phpstan-ignore-next-line */
+        $command = 'App\\Commannds\\' . $file->getBasename('.php');
+        /** @phpstan-ignore-next-line */
+        $application->add(new $command);
+    };
+}
+
+$application->setDefaultCommand('default');
+
+$application->run();
