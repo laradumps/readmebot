@@ -3,7 +3,7 @@
 <div align="center">
   <p align="center">
     <a href="https://github.com/laradumps/readmebot/actions">
-        <img alt="Tests" src="https://github.com/laradumps/readmebot/workflows/ci/badge.svg" />
+        <img alt="Tests" src="https://github.com/laradumps/readmebot/workflows/CI/badge.svg" />
     </a>
   </p>
 </div>
