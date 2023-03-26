@@ -6,7 +6,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
-$application = new Application('LaraDumps Readme-BOT', '1.0.0');
+$application = new Application('LaraDumps Readme-BOT', '1.1.0');
 
 $files = new \FilesystemIterator(__DIR__ . '/../app/Commands');
 
