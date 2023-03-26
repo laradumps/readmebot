@@ -85,7 +85,7 @@ final class File
             try {
                 /** @phpstan-ignore-next-line */
                 if (unlink($path)) {
-                    clearstatcache(false, $path);
+                    clearstatcache(false, strval($path));
                 } else {
                     $success = false;
                 }
